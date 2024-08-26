@@ -1,0 +1,130 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.9), rgba(173, 216, 230, 0.9)), 
+                url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Photo Gallery Container */
+.photo-gallery {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    width: 90%;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+    margin: 10px;
+}
+
+.photo-gallery h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+/* Photos Grid */
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    animation: slideIn 1.5s ease-out;
+}
+
+.photo-item {
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: calc(100% - 30px); /* Default to full width with margin for small screens */
+    max-width: 100%;
+    position: relative;
+}
+
+/* Apply Heart Shape Mask */
+.photo-item img {
+    width: 100%;
+    height: auto;
+    clip-path: path('M50,15 A35,35 0 1,1 85,50 A35,35 0 1,1 50,15 Z'); /* Adjust the clip-path to create a heart shape */
+    border-bottom: 3px solid #ddd;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.quote {
+    padding: 10px;
+    font-size: 1em;
+    color: #555;
+    font-style: italic;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4, 0 0 15px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4, 0 0 60px #ff69b4; }
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+    .photo-gallery {
+        padding: 30px;
+    }
+
+    .photo-gallery h1 {
+        font-size: 2.2em;
+    }
+
+    .photos {
+        gap: 20px;
+    }
+
+    .photo-item {
+        width: calc(50% - 30px); /* Two items per row */
+    }
+}
+
+@media (min-width: 900px) {
+    .photo-gallery {
+        padding: 40px;
+    }
+
+    .photo-gallery h1 {
+        font-size: 2.5em;
+    }
+
+    .photo-item {
+        width: calc(33.333% - 30px); /* Three items per row */
+    }
+
+    .quote {
+        font-size: 1.1em;
+    }
+}
